@@ -7,7 +7,11 @@ class App extends Component {
 
     async componentDidMount() {
         try {
-            const res = await fetch('http://127.0.0.1:8000/api/');
+            const url = document.location.protocol + '//' +
+                        document.location.hostname + ':8000';
+            const api = '/api/';
+            console.log(url + api);
+            const res = await fetch(url + api);
             const posts = await res.json();
             this.setState({
                 posts
